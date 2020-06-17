@@ -4,17 +4,10 @@ import { StyleSheet } from "react-native";
 import Screen from "./components/Screen";
 import Icon from "./components/Icon";
 import ListItem from "./components/ListItem";
+import AccountScreen from "./screens/AccountScreen";
 
 export default function App() {
-  return (
-    <Screen>
-      <ListItem
-        title="title"
-        subTitle="subTitle"
-        ImageComponent={<Icon name="email" />}
-      />
-    </Screen>
-  );
+  return <AccountScreen />;
 }
 
 const styles = StyleSheet.create({
