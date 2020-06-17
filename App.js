@@ -5,9 +5,10 @@ import WelcomeScreen from "./screens/WelcomeScreen";
 import ViewImageScreen from "./screens/ViewImageScreen";
 import AppButton from "./components/AppButton";
 import ListDetailsScreen from "./screens/ListDetailsScreen";
+import MessagesScreen from "./screens/MessagesScreen";
 
 export default function App() {
-  return <ViewImageScreen />;
+  return <MessagesScreen />;
 }
 
 const styles = StyleSheet.create({
