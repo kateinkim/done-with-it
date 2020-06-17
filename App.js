@@ -1,14 +1,20 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
 
-import WelcomeScreen from "./screens/WelcomeScreen";
-import ViewImageScreen from "./screens/ViewImageScreen";
-import AppButton from "./components/AppButton";
-import ListDetailsScreen from "./screens/ListDetailsScreen";
-import MessagesScreen from "./screens/MessagesScreen";
+import Screen from "./components/Screen";
+import Icon from "./components/Icon";
+import ListItem from "./components/ListItem";
 
 export default function App() {
-  return <MessagesScreen />;
+  return (
+    <Screen>
+      <ListItem
+        title="title"
+        subTitle="subTitle"
+        ImageComponent={<Icon name="email" />}
+      />
+    </Screen>
+  );
 }
 
 const styles = StyleSheet.create({
