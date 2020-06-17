@@ -10,17 +10,17 @@ import {
 
 import colors from "../config/colors";
 import AppButton from "../components/AppButton";
-import { Colors } from "react-native/Libraries/NewAppScreen";
 
 const WelcomeScreen = () => {
   return (
     <ImageBackground
+      blurRadius={10}
       source={require("../assets/background.jpg")}
       style={styles.background}
     >
       <View style={styles.logoContainer}>
         <Image source={require("../assets/logo-red.png")} style={styles.logo} />
-        <Text>Sell What You Don't Need</Text>
+        <Text style={styles.tagline}>Sell What You Don't Need</Text>
       </View>
       <View style={styles.buttonsContainer}>
         <AppButton title="Login" />
@@ -48,6 +48,11 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: 70,
     alignItems: "center",
+  },
+  tagline: {
+    fontSize: 25,
+    fontWeight: "600",
+    paddingVertical: 20,
   },
 });
 
