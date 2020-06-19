@@ -19,14 +19,16 @@ const AppPicker = ({
   items,
   onSelectItem,
   placeholder,
+  PickerItemComponent = PickerItem,
   selectedItem,
+  width = "100%",
 }) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
     <>
       <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
-        <View style={styles.container}>
+        <View style={[styles.container, { width }]}>
           {icon && (
             <MaterialCommunityIcons
               name={icon}
@@ -36,14 +38,16 @@ const AppPicker = ({
             />
           )}
           {selectedItem ? (
-            <AppText style={styles.text}>{selectedItem.label}</AppText>
+            <AppText>{selectedItem.label}</AppText>
           ) : (
             <AppText style={styles.placeholder}>{placeholder}</AppText>
           )}
+
           <MaterialCommunityIcons
             name="chevron-down"
             size={20}
             color={colors.medium}
+            style={{ marginLeft: "auto" }}
           />
         </View>
       </TouchableWithoutFeedback>
@@ -54,7 +58,7 @@ const AppPicker = ({
             data={items}
             keyExtractor={(item) => item.value.toString()}
             renderItem={({ item }) => (
-              <PickerItem
+              <PickerItemComponent
                 label={item.label}
                 onPress={() => {
                   setModalVisible(false);
@@ -76,7 +80,6 @@ const styles = StyleSheet.create({
     backgroundColor: colors.light,
     borderRadius: 25,
     flexDirection: "row",
-    width: "100%",
     padding: 15,
     marginVertical: 10,
   },
@@ -85,9 +88,5 @@ const styles = StyleSheet.create({
   },
   placeholder: {
     color: colors.medium,
-    flex: 1,
-  },
-  text: {
-    flex: 1,
   },
 });
