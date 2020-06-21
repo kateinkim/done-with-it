@@ -16,11 +16,12 @@ import ImageInputList from "./components/ImageInputList";
 import AuthNavigator from "./navigation/AuthNavigator";
 import navigationTheme from "./navigation/navigationTheme";
 import AppNavigator from "./navigation/AppNavigator";
+import WelcomeScreen from "./screens/WelcomeScreen";
 
 export default function App() {
   return (
     <NavigationContainer theme={navigationTheme}>
-      <AppNavigator />
+      <WelcomeScreen />
     </NavigationContainer>
   );
 }

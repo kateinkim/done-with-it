@@ -8,8 +8,8 @@ import {
   Button,
 } from "react-native";
 
-import colors from "../config/colors";
 import AppButton from "../components/AppButton";
+import routes from "../navigation/routes";
 
 const WelcomeScreen = ({ navigation }) => {
   return (
@@ -23,7 +23,10 @@ const WelcomeScreen = ({ navigation }) => {
         <Text style={styles.tagline}>Sell What You Don't Need</Text>
       </View>
       <View style={styles.buttonsContainer}>
-        <AppButton title="Login" onPress={() => navigation.navigate("Login")} />
+        <AppButton
+          title={routes.LOGIN}
+          onPress={() => navigation.navigate(routes.LOGIN)}
+        />
         <AppButton
           title="Register"
           color="secondary"
