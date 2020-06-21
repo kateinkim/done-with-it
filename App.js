@@ -14,11 +14,13 @@ import MessagesScreen from "./screens/MessagesScreen.jsx";
 import ImageInput from "./components/ImageInput";
 import ImageInputList from "./components/ImageInputList";
 import AuthNavigator from "./navigation/AuthNavigator";
+import navigationTheme from "./navigation/navigationTheme";
+import AppNavigator from "./navigation/AppNavigator";
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <AuthNavigator />
+    <NavigationContainer theme={navigationTheme}>
+      <AppNavigator />
     </NavigationContainer>
   );
 }
