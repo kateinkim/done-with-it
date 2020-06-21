@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet, TextInput, Button, Image } from "react-native";
-import * as ImagePicker from "expo-image-picker";
-
+import { NavigationContainer } from "@react-navigation/native";
 import Screen from "./components/Screen";
 import Icon from "./components/Icon";
 import ListItem from "./components/ListItem";
@@ -14,9 +13,14 @@ import ListEditingScreen from "./screens/ListEditingScreen";
 import MessagesScreen from "./screens/MessagesScreen.jsx";
 import ImageInput from "./components/ImageInput";
 import ImageInputList from "./components/ImageInputList";
+import AuthNavigator from "./navigation/AuthNavigator";
 
 export default function App() {
-  return <ListEditingScreen />;
+  return (
+    <NavigationContainer>
+      <AuthNavigator />
+    </NavigationContainer>
+  );
 }
 
 const styles = StyleSheet.create({
