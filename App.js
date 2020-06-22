@@ -21,7 +21,7 @@ import WelcomeScreen from "./screens/WelcomeScreen";
 export default function App() {
   return (
     <NavigationContainer theme={navigationTheme}>
-      <WelcomeScreen />
+      <AppNavigator />
     </NavigationContainer>
   );
 }
