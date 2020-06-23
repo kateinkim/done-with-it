@@ -5,14 +5,14 @@ import ActivityIndicator from "../components/ActivityIndicator";
 import Button from "../components/AppButton";
 import Card from "../components/Card";
 import colors from "../config/colors";
-import listingsApi from "../api/listings";
+import ListingsApi from "../api/listings";
 import Screen from "../components/Screen";
 import routes from "../navigation/routes";
 import AppText from "../components/AppText";
 import useApi from "../hooks/useApi";
 
 const ListingsScreen = ({ navigation }) => {
-  const getListingsApi = useApi(listingsApi.getListings);
+  const getListingsApi = useApi(ListingsApi.getListings);
 
   useEffect(() => {
     getListingsApi.request();
