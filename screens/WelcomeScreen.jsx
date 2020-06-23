@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  ImageBackground,
-  Image,
-  Button,
-} from "react-native";
+import { View, Text, StyleSheet, ImageBackground, Image } from "react-native";
 
 import AppButton from "../components/AppButton";
 import routes from "../navigation/routes";

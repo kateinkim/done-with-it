@@ -11,7 +11,7 @@ const ListDetailsScreen = ({ route }) => {
   return (
     <View>
       <Image
-        preview={listing.images[0].thumbnailUrl}
+        preview={{ uri: listing.images[0].thumbnailUrl }}
         style={styles.image}
         tint="light"
         uri={listing.images[0].url}
