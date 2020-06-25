@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
-import jwtDecode from "jwt-decode";
+import { AppLoading } from "expo";
 
 import navigationTheme from "./navigation/navigationTheme";
 import AppNavigator from "./navigation/AppNavigator";
@@ -12,16 +12,17 @@ import authStorage from "./auth/storage";
 
 export default function App() {
   const [user, setUser] = useState();
+  const [isReady, setReady] = useState(false);
 
-  const restoreToken = async () => {
-    const token = await authStorage.getToken();
-    if (!token) return;
-    setUser(jwtDecode(token));
+  const restoreUser = async () => {
+    const user = await authStorage.getUser();
+    if (user) setUser(user);
   };
 
-  useEffect(() => {
-    restoreToken();
-  }, []);
+  if (!isReady)
+    return (
+      <AppLoading startAsync={restoreUser} onFinish={() => setReady(true)} />
+    );
 
   return (
     <AuthContext.Provider value={{ user, setUser }}>
