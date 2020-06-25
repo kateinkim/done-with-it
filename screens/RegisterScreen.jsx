@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { StyleSheet } from "react-native";
 import * as Yup from "yup";
 
+import ActivityIndicator from "../components/ActivityIndicator";
 import {
   AppForm,
   AppFormField,
@@ -13,7 +14,6 @@ import Screen from "../components/Screen";
 import usersApi from "../api/users";
 import useAuth from "../auth/useAuth";
 import useApi from "../hooks/useApi";
-import ActivityIndicator from "../components/ActivityIndicator";
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required().label("Name"),
