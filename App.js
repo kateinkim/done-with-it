@@ -1,19 +1,18 @@
 import React, { useState } from "react";
-import { StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { AppLoading } from "expo";
 
-import navigationTheme from "./navigation/navigationTheme";
-import AppNavigator from "./navigation/AppNavigator";
-import OfflineNotice from "./components/OfflineNotice";
-import AuthNavigator from "./navigation/AuthNavigator";
-import AuthContext from "./auth/context";
-import authStorage from "./auth/storage";
-import { navigationRef } from "./navigation/rootNavigation";
+import navigationTheme from "./app/navigation/navigationTheme";
+import AppNavigator from "./app/navigation/AppNavigator";
+import OfflineNotice from "./app/components/OfflineNotice";
+import AuthNavigator from "./app/navigation/AuthNavigator";
+import AuthContext from "./app/auth/context";
+import authStorage from "./app/auth/storage";
+import { navigationRef } from "./app/navigation/rootNavigation";
 
 export default function App() {
   const [user, setUser] = useState();
-  const [isReady, setReady] = useState(false);
+  const [isReady, setIsReady] = useState(false);
 
   const restoreUser = async () => {
     const user = await authStorage.getUser();
@@ -22,7 +21,7 @@ export default function App() {
 
   if (!isReady)
     return (
-      <AppLoading startAsync={restoreUser} onFinish={() => setReady(true)} />
+      <AppLoading startAsync={restoreUser} onFinish={() => setIsReady(true)} />
     );
 
   return (
@@ -34,11 +33,3 @@ export default function App() {
     </AuthContext.Provider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
